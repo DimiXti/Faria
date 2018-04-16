@@ -28,6 +28,8 @@ namespace UnityStandardAssets.Cameras
 		private Quaternion m_PivotTargetRot;
 		private Quaternion m_TransformTargetRot;
 
+        public bool WithoutRightClick = true;
+
         protected override void Awake()
         {
             base.Awake();
@@ -43,14 +45,17 @@ namespace UnityStandardAssets.Cameras
 
         protected void Update()
         {
-            HandleRotationMovement();
+            if (Input.GetMouseButton(1) || WithoutRightClick) 
+            {
+                HandleRotationMovement();
+            }
             if (m_LockCursor && Input.GetMouseButtonUp(0))
             {
                 Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
                 Cursor.visible = !m_LockCursor;
             }
         }
-
+        
 
         private void OnDisable()
         {

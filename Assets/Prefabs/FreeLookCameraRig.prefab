@@ -207,6 +207,7 @@ MonoBehaviour:
   m_TiltMin: 45
   m_LockCursor: 0
   m_VerticalAutoReturn: 0
+  WithoutRightClick: 0
 --- !u!124 &124264497869344382
 Behaviour:
   m_ObjectHideFlags: 1
